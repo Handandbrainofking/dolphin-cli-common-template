@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const config = require('./config');
 const helper = require('./helper');
 const glob = require('glob');
+const copy = require('copy-webpack-plugin');
 const vueLoaderConfig = require('./vue-loader.conf');
 const vueWebTemp = helper.rootNode(config.templateDir);
 const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath));
@@ -56,6 +57,7 @@ new Vue(App)
 const getEntryFile = (dir) => {
   dir = dir || config.sourceDir;
   const entries = glob.sync(`${dir}/${config.entryFilter}`, config.entryFilterOptions);
+  console.log('common entry*****', entries)
   entries.forEach(entry => {
     const extname = path.extname(entry);
     const basename = entry.replace(`${dir}/`, '').replace(extname, '');
@@ -97,7 +99,11 @@ const plugins = [
     banner: '// { "framework": "Vue"} \n',
     raw: true,
     exclude: 'Vue'
-  })
+  }),
+  //文件拷贝插件，将图片和字体拷贝到dist目录
+  new copy([
+      {from: './src/image', to: './image'}
+  ])
 ];
 
 // Config for compile jsbundle for web.

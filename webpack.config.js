@@ -2,6 +2,8 @@
 const  buildPlugins = require('./configs/plugin');
 let webpackConfig;
 module.exports = env => {
+    console.log('webpack debug, env:', env)
+
   switch (env.NODE_ENV) {
     case 'prod':
     case 'production':

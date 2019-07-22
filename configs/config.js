@@ -23,7 +23,7 @@ const config = {
     // Various Dev Server settings
     contentBase: ROOT,
     host: ip,
-    port: 8081,
+    port: 8091,
     historyApiFallback: true,
     open: true,
     watchContentBase: true,
