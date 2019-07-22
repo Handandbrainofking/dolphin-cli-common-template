@@ -3,4 +3,5 @@ node_modules
 .cachefile
 */node_modules
 npm-debug.log
-temp
+.temp
+/dist
