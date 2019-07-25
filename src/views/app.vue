@@ -1,0 +1,319 @@
+<template>
+  <div class="flex-column center">
+    <!-- <weex-image src="/image/logo.png" width="150px" height="150px"></weex-image> -->
+    <text class="h2">Weex</text>
+    <text class="h4">专注于 Weex 界面开发最佳实践</text>
+    <wxc-button type="blue" size="full" text="快速体验" @wxcButtonClicked="jumpTo"></wxc-button>
+  </div>
+</template>
+<script>
+import { WxcButton } from "weex-ui";
+const globalEvent = weex.requireModule("globalEvent");
+const modal = weex.requireModule("modal");
+
+module.exports = {
+  data: function() {
+    return {};
+  },
+  methods: {
+    jumpTo() {
+      // this.$alert(22);
+      // this.linkapi.getLoginInfo((res) => {
+      //     this.$alert(11);
+      //     this.$alert(res);
+      //     let user = [];
+      //     user.push(res.userId);
+      //     let ss = {
+      //         pickUsers: 0,
+      //         groupName: "333",
+      //         isPublic: 1
+      //     };
+      //     this.$alert(ss);
+      //     this.linkapi.createGroup(ss, (resp) => {
+      //         this.$alert("suc");
+      //         this.$alert(resp);
+      //     }, (error) =>{
+      //         this.$alert("error");
+      //         this.$alert(error);
+      //     });
+      // });
+      let platform = this.$MD.platform.name;
+      this.$MD.toast(platform, 2);
+      var url = "index.js";
+      this.$MD.route.push(url);
+    }
+  },
+  components: {
+    WxcButton
+  },
+  mounted: function() {
+    globalEvent.addEventListener("androidback", e => {
+      this.$pop();
+    });
+  }
+};
+</script>
+
+<style scoped>
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-fluid {
+  flex-wrap: wrap;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.column-center-top {
+  align-items: center;
+}
+
+.column-center-bottom {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.column-center-left {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.column-center-right {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.column-left-top {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.column-right-top {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.column-left-bottom {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.column-right-bottom {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.row-space-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row-center-top {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.row-center-bottom {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.row-center-left {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.row-center-right {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.row-left-top {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.row-right-top {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.row-left-bottom {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.row-right-bottom {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.span1 {
+  flex: 1;
+}
+
+.span2 {
+  flex: 2;
+}
+
+.span3 {
+  flex: 3;
+}
+
+.span4 {
+  flex: 4;
+}
+
+.span5 {
+  flex: 5;
+}
+
+.span6 {
+  flex: 6;
+}
+
+.span7 {
+  flex: 7;
+}
+
+.span8 {
+  flex: 8;
+}
+
+.span9 {
+  flex: 9;
+}
+
+.span10 {
+  flex: 10;
+}
+
+.span11 {
+  flex: 11;
+}
+
+.span12 {
+  flex: 12;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+}
+
+.flex3 {
+  flex: 3;
+}
+
+.flex4 {
+  flex: 4;
+}
+
+.flex5 {
+  flex: 5;
+}
+
+.flex6 {
+  flex: 6;
+}
+
+.flex7 {
+  flex: 7;
+}
+
+.flex8 {
+  flex: 8;
+}
+
+.flex9 {
+  flex: 9;
+}
+
+.flex10 {
+  flex: 10;
+}
+
+.flex11 {
+  flex: 11;
+}
+
+.flex12 {
+  flex: 12;
+}
+
+.p-r {
+  /*position: relative;*/
+}
+
+.p-a {
+  position: absolute;
+}
+
+.badges {
+  background-color: #ff4e24;
+  width: 50px;
+  height: 40px;
+  border-radius: 30px;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 7px;
+  font-size: 24px;
+}
+
+.large-badges {
+  background-color: #ff4e24;
+  width: 70px;
+  height: 40px;
+  border-radius: 30px;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 7px;
+}
+
+.bgRed {
+  background-color: #fa3300;
+}
+
+.h1 {
+  font-size: 80px;
+  line-height: 120px;
+  color: #464c5b;
+}
+
+.h2 {
+  font-size: 60px;
+  line-height: 100px;
+  color: #464c5b;
+}
+
+.h3 {
+  font-size: 45px;
+  line-height: 60px;
+  color: #464c5b;
+}
+
+.h4 {
+  font-size: 32px;
+  line-height: 45px;
+  color: #464c5b;
+}
+
+.h5 {
+  font-size: 28px;
+  line-height: 40px;
+  color: #464c5b;
+}
+</style>
+
+
